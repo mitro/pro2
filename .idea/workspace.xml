@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="918ba5b3-d478-480e-91d1-c2b55fb9bc5a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/server/mission/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/server/mission/model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/config/env/all.js" afterPath="$PROJECT_DIR$/lib/config/env/all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/config/env/development.js" afterPath="$PROJECT_DIR$/lib/config/env/development.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/config/dummydata.js" afterPath="$PROJECT_DIR$/lib/config/dummydata.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.html" afterPath="$PROJECT_DIR$/app/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/models/mission.js" afterPath="$PROJECT_DIR$/lib/models/mission.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/controllers/missions.js" afterPath="$PROJECT_DIR$/lib/controllers/missions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes.js" afterPath="$PROJECT_DIR$/lib/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/config/env/test.js" afterPath="$PROJECT_DIR$/lib/config/env/test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pro2.iws" />
@@ -68,6 +58,7 @@
         <option value="damir.imangulov" />
       </list>
     </option>
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -360,6 +351,11 @@
       <created>1401121619516</created>
       <updated>1401121619516</updated>
     </task>
+    <task id="LOCAL-00001" summary="Rest сервис на чтение миссий">
+      <created>1402326914284</created>
+      <updated>1402326914284</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -422,7 +418,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Rest сервис на чтение миссий" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rest сервис на чтение миссий" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
