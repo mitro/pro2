@@ -1,43 +1,60 @@
-'use strict';
+var app,
+	express = require('express'),
+	path = require('path'),
+	winston = require('winston'),
+	routes = require('./routes'),
+	config = require('./libs/config'), //настройки вынесены в config.json
+	db = require('./libs/db'),
+	handlers,
+	port = config.get('port');
 
-var express = require('express'),
-    path = require('path'),
-    fs = require('fs'),
-    mongoose = require('mongoose');
+app = express();
 
-/**
- * Main application file
- */
+app.use(express.json());//json parser
+app.use(express.methodOverride());// put & delete методы для api
 
-// Set default node environment to development
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+app.use(express.static('app'));
 
-var config = require('./lib/config/config');
-var db = mongoose.connect(config.mongo.uri, config.mongo.options);
+app.use('/js/libs/', express.static('node_modules/requirejs/'));
+app.use('/js/libs/', express.static('node_modules/handlebars/'));
+app.use('/js/libs/', express.static('node_modules/jquery/'));
+app.use('/js/libs/', express.static('node_modules/ember/'));
+app.use('/js/libs/', express.static('node_modules/momentjs/'));
+app.use('/node_modules/', express.static('node_modules'));
 
-// Bootstrap models
-var modelsPath = path.join(__dirname, 'lib/models');
-fs.readdirSync(modelsPath).forEach(function (file) {
-  if (/(.*)\.(js$|coffee$)/.test(file)) {
-    require(modelsPath + '/' + file);
-  }
+app.use('/test', express.static('app_test/'))
+app.use('/test', express.static('app'))
+
+
+// обработка ошибок
+app.use(function(err, req, res, next){
+	console.log(err.name);
+	if (err.name == "ValidationError"){
+		res.send(400, err);
+	} else {
+		next(err);
+	}
 });
 
-// Populate empty DB with sample data
-require('./lib/config/dummydata');
-
-// Passport Configuration
-var passport = require('./lib/config/passport');
-
-// Setup Express
-var app = express();
-require('./lib/config/express')(app);
-require('./lib/routes')(app);
-
-// Start server
-app.listen(config.port, config.ip, function () {
-  console.log('Express server listening on %s:%d, in %s mode', config.ip, config.port, app.get('env'));
+app.use(function(err, req, res, next){
+	res.send(500, err);
 });
 
-// Expose app
-exports = module.exports = app;
+//обработчики роутеров
+handlers = {
+	userTypes: require('./handlers/usertypes')
+};
+
+// настройка роутеров
+routes.setup(app, handlers);
+
+app.listen(port, function(){
+
+	winston.info('App running on port: ' + port);	
+	
+	//загрузка схем моделей
+	db.init(path.join(__dirname, 'models'), function(err, data){
+		winston.info('All models are initialized');
+	});
+
+});
