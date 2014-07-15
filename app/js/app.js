@@ -1,16 +1,5 @@
 (function(root){
-
-	require([
-		'emberApp' 
-		], function(
-			EmberApp
-			) {
-
-		EmberApp.Router.map(function(){
-
-		});
-
-		root.Pro2 = EmberApp;
+	require(['pro2App'], function(Pro2App) {
+		root.Pro2 = Pro2App;
 	});
-
 })(this);

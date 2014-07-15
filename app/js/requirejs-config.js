@@ -3,26 +3,27 @@ requirejs.config({
 
   paths: {
   	//libs
-  	'jquery': 'libs/dist/jquery.min',
-    'ember': 'libs/ember',
-    'handlebars': 'libs/handlebars',
-    'moment': 'libs/min/moment.min',
-    //modules
-    'emberApp': 'emberApp'
-    //routes
+  	'jquery': 'libs/jquery/jquery',
+    'ember': 'libs/ember/ember',
+    'ember-data': 'libs/ember-data/ember-data',
+    'handlebars': 'libs/handlebars/handlebars',
+    'text': 'libs/requirejs-text/text',
+    'hbs': 'libs/requirejs-ember-handlebars/ehbs',
+  },
 
-  	//models
-
-   	//controllers
-
-   	//views
-
+  hbs: {
+    disableI18n: true,
+    templateExtension: 'html'
   },
 
   shim: {
     'ember': {
       deps: ['handlebars', 'jquery'],
       exports: 'Ember'
+    },
+    'ember-data':{
+        deps:[ 'ember'],
+        exports:'DS'
     }
   }
 });

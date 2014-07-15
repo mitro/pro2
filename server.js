@@ -15,12 +15,11 @@ app.use(express.methodOverride());// put & delete методы для api
 
 app.use(express.static('app'));
 
-app.use('/js/libs/', express.static('node_modules/requirejs/'));
-app.use('/js/libs/', express.static('node_modules/handlebars/'));
-app.use('/js/libs/', express.static('node_modules/jquery/'));
-app.use('/js/libs/', express.static('node_modules/ember/'));
-app.use('/js/libs/', express.static('node_modules/momentjs/'));
+app.use('/js/libs/', express.static('bower_components/'));
 app.use('/node_modules/', express.static('node_modules'));
+app.use('/css/', express.static('public/css'));
+app.use('/fonts/', express.static('public/fonts'));
+app.use('/img/', express.static('public/img'));
 
 app.use('/test', express.static('app_test/'))
 app.use('/test', express.static('app'))

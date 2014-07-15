@@ -1,0 +1,12 @@
+{
+  "name": "emberjs-requirejs",
+  "version": "1.0.0",
+  "dependencies": {
+    "ember": "latest",
+    "jquery": "2.0",
+    "ember-data": "latest",
+    "requirejs": "2.1.14",
+    "requirejs-plugins": "~1.0.2",
+    "requirejs-ember-handlebars": "*"
+  }
+}
