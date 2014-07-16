@@ -9,20 +9,6 @@ var app,
 
 app = bootable(express());
 
-//app.use(express.json());//json parser
-//app.use(express.methodOverride());// put & delete методы для api
-
-// Bootstrap models
-/*var modelsPath = rootDir + '/models';
-console.log(modelsPath);
-fs.readdirSync(modelsPath).forEach(function (file) {
-    if (/(.*)\.(js$|coffee$)/.test(file)) {
-        require(modelsPath + '/' + file);
-    }
-});*/
-
-app.use(express.static('app'));
-
 app.phase(bootable.initializers('setup/initializers/'));
 
 app.phase(function(){ require('./fakedata'); });

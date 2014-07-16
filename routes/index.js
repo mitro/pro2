@@ -9,13 +9,12 @@ var config = require('nconf');*/
 var requireTree = require('require-tree');
 var controllers = requireTree('../controllers');
 var mustAuthenticatedMw = require('../helpers/must-authenticated');
-var megaMissions = require('../controllers/MegaMissions');
 var express = require('express');
 // End of dependencies.
 
 
 module.exports = function() {
-
+	this.use(express.static('app'));
 	this.use('/js/libs/', express.static('bower_components/'));
 	this.use('/node_modules/', express.static('node_modules'));
 	this.use('/css/', express.static('public/css'));
@@ -33,7 +32,7 @@ module.exports = function() {
 		res.render('test/index.html');
 	});
 
-	this.get('/api/megamissions', megaMissions.list);
+	this.get('/api/megamissions', controllers.MegaMissions.list);
 
 	// Auth controllers
 	this.post('/login', controllers.users.login);
