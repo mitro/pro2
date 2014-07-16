@@ -17,19 +17,21 @@ app.phase(bootableEnv('setup/environments'));
 
 app.phase(bootable.routes('routes/index.js'));
 
-// обработка ошибок
-app.use(function(err, req, res, next){
-	console.log(err.name);
-	if (err.name == "ValidationError"){
-		res.send(400, err);
-	} else {
-		next(err);
-	}
-});
+app.phase(function(){
+	// обработка ошибок
+	app.use(function(err, req, res, next){
+		console.log(err.name);
+		if (err.name == "ValidationError"){
+			res.send(400, err);
+		} else {
+			next(err);
+		}
+	});
 
-app.use(function(err, req, res/*, next*/){
-	res.send(500, err);
-});
+	app.use(function(err, req, res/*, next*/){
+		res.send(500, err);
+	});}
+)
 
 app.boot(function(err) {
 	if (err) { throw err; }
