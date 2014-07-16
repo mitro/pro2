@@ -1,52 +1,35 @@
 var app,
+	bootable = require('bootable'),
+	bootableEnv = require('bootable-environment'),
 	express = require('express'),
-	path = require('path'),
 	winston = require('winston'),
-	routes = require('./routes'),
+	//routes = require('./routes'),
 	config = require('./config'), //настройки вынесены в config.json
-    mongoose = require('mongoose'),
-    fs = require('fs'),
 	port = config.get('port');
 
-app = express();
+app = bootable(express());
 
-app.use(express.json());//json parser
-app.use(express.methodOverride());// put & delete методы для api
-
-app.use(express.static('app'));
-
-mongoose.connect(config.get('mongoose:url'));
-db = mongoose.connection;
-
-db.on('error', function (err) {
-    console.log('error db connection - ' + err);
-});
-
-db.once('open', function callback () {
-    console.log('db connected');
-});
+//app.use(express.json());//json parser
+//app.use(express.methodOverride());// put & delete методы для api
 
 // Bootstrap models
-var modelsPath = path.join(__dirname, 'models');
+/*var modelsPath = rootDir + '/models';
+console.log(modelsPath);
 fs.readdirSync(modelsPath).forEach(function (file) {
     if (/(.*)\.(js$|coffee$)/.test(file)) {
         require(modelsPath + '/' + file);
     }
-});
+});*/
 
-require('./fakedata');
+app.use(express.static('app'));
 
-routes.setup(app);
+app.phase(bootable.initializers('setup/initializers/'));
 
-app.use('/js/libs/', express.static('bower_components/'));
-app.use('/node_modules/', express.static('node_modules'));
-app.use('/css/', express.static('public/css'));
-app.use('/fonts/', express.static('public/fonts'));
-app.use('/img/', express.static('public/img'));
+app.phase(function(){ require('./fakedata'); });
 
-app.use('/test', express.static('app_test/'));
-app.use('/test', express.static('app'));
+app.phase(bootableEnv('setup/environments'));
 
+app.phase(bootable.routes('routes/index.js'));
 
 // обработка ошибок
 app.use(function(err, req, res, next){
@@ -62,6 +45,10 @@ app.use(function(err, req, res/*, next*/){
 	res.send(500, err);
 });
 
-app.listen(port, function(){
-	winston.info('App running on port: ' + port);
+app.boot(function(err) {
+	if (err) { throw err; }
+	app.listen(port, function(){
+		winston.info('App running on port: ' + port);
+	});
 });
+
