@@ -2,8 +2,10 @@ define(['ember'], function () {
 	var welcomeRoute;
 
 	welcomeRoute = Ember.Route.extend({
-		model: function () {
-			
+		renderTemplate: function () {
+			this.render({
+				outlet: 'page'
+			})
 		}
 	});
 

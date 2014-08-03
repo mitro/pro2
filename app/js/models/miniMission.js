@@ -3,7 +3,9 @@ define(['ember', 'ember-data'], function () {
 		attr = DS.attr;
 
 	miniMission = DS.Model.extend({
-		name: attr('string')
+		type: attr('string'),
+		name: attr('string'),
+        status: attr('string')
 	});
 
 	return miniMission;

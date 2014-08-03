@@ -1,0 +1,60 @@
+.mega-mission {
+    position: relative;
+    width: 67px;
+    height: 95px;
+}
+
+.mega-mission .mark {
+    position: relative;
+
+    width: 67px;
+    height: 67px;
+}
+
+.mega-mission .border {
+    height: 67px;
+    width: 67px;
+
+    opacity: 0.5;
+    background-color: #ffffff;
+    border-radius: 67px;
+}
+
+.mega-mission .indicator {
+    position: absolute;
+    left: 10.5px;
+    top: 10.5px;
+    
+    width: 46px;
+    height: 46px;
+
+    border-radius: 46px;
+    background-color: #ffffff;
+}
+
+.mega-mission .title {
+    position: absolute;
+    bottom: 0;
+    left:-56.5px;
+
+    width: 180px;
+    height: 28px;
+    font-family: Thin;
+    font-size: 18px;
+    line-height: 28px;
+
+    color: #ffffff;
+    text-align: center;
+}
+
+.mega-mission.done .border, .mini-mission.done .border {
+    background-color: greenyellow;
+}
+
+.mega-mission.progress .border, .mini-mission.progress .border {
+     background-color: dodgerblue;
+ }
+
+.mega-mission.lock, .mini-mission.lock {
+    opacity: 0.5;
+}

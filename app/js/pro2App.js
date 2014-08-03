@@ -1,13 +1,18 @@
 define([
 	//routes
-	'routes/map',	
-	'routes/welcome',	
+	'routes/mapRoute',	
+	'routes/welcomeRoute',
+	//controllers
+	'controllers/mapController',	
+	'controllers/megaMissionController',
 	//models
 	'models/megaMission',
 	'models/miniMission',
 	//views
-	'views/map',
-	'views/welcome',
+	'views/mapView',
+	'views/welcomeView',
+    'views/megaMissionView',
+    'views/miniMissionView',
 	//fixtures
 	'fixtures/megaMissions',
 	'fixtures/miniMissions',
@@ -19,12 +24,17 @@ define([
 		//routes
 		MapRoute,
 		WelcomeRoute,
+		//controllers
+		MapController,
+        MegaMissionController,
 		//models
 		MegaMission,
 		MiniMission,
 		//views
 		MapView,
 		WelcomeView,
+        MegaMissionView,
+        MiniMissionView,
 		//fixtures
 		FixtureMegaMissions,
 		FixtureMiniMissions
@@ -38,12 +48,17 @@ define([
 		//routes
 		MapRoute: MapRoute,
 		WelcomeRoute: WelcomeRoute,
+		//controllers
+		MapController: MapController,
+        MegaMissionController: MegaMissionController,
 		//models
 		MegaMission: MegaMission,
 		MiniMission: MiniMission,
 		//views
 		MapView: MapView,
 		WelcomeView: WelcomeView,
+        MegaMissionView: MegaMissionView,
+        MiniMissionView: MiniMissionView,
 		//store
 		Store: DS.Store.extend({
 			adapter: DS.FixtureAdapter.extend()

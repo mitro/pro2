@@ -1,72 +1,69 @@
 .step {
-	float: left;
-	width: 140px;
-
-	margin: 0 10px;
+    position: absolute;
+    width: 67px;
 }
 
-.megaMission {
-	position: relative;
-	margin: 5px auto;
-	height: 80px;
-	width: 80px;
+.step .way {
+    position: relative;
+    width: 67px;
 }
 
-.megaMissionTitle {
-	text-align: center;
-	color: #fff;
-	font: 18px Thin;
-	text-transform: capitalize;
+.step .way .connector {
+    position: relative;
+    width: 1px;
+    height: 22px;
+
+    margin: 0 auto;
+    background-color: #ffffff;
 }
 
-.done .border {
-	background-color: #6ce32c !important; 
+.line{
+    background-color: #ffffff;
+    position: absolute;
 }
 
-.progress .border {
-	background-color: #5e7cff !important; 
+.line-horizontal {
+    margin-left: -0.5px;
+    height: 1px;
 }
 
-.locked {
-	opacity: 0.4;
+.line-horizontal[data-num="1"] {
+     width: 27%;
+     left: 20%;
+     bottom: 300px;
 }
 
-.megaMission .ico {
-	position: absolute;
-	left: 15px;
-	top: 15px;
-
-	width: 50px;
-	height: 50px;
-
-	border-radius: 80px;
-	background-color: #fff;
+.line-horizontal[data-num="2"] {
+    width: 27%;
+    right: 20%;
+    bottom: 300px;
 }
 
-.megaMission .border {
-	position: absolute;
-
-	width: 80px;
-	height: 80px;
-
-	opacity: 0.4;
-	border-radius: 80px;
-	background-color: #fff;
+.step[data-code] {
+    margin-left: -33.5px;
 }
 
-.miniMission .connector {
-	width: 1px;
-	height: 15px;
-
-	background-color: #fff;
-	margin: 0 auto;
+.step[data-code="beginner"] {
+    left: 50%;
+    bottom: -10px;
 }
 
-.miniMission .alter {
-	color: #fff;
-	font: 15px Thin;
-	height: 32px;
-	line-height: 32px;
-	border: 1px solid #fff;
-	text-align: center;
+.step[data-code="netDev"] {
+    left: 50%;
+    bottom: 126px;
+}
+
+.step[data-code="Arch"] {
+    left: 50%;
+    bottom: 348px;
+}
+
+.step[data-code="dbDev"] {
+    left: 20%;
+    bottom: 300px;
+}
+
+.step[data-code="frontDev"] {
+    left: 80%;
+    bottom: 300px;
 }

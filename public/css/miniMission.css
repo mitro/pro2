@@ -1,0 +1,41 @@
+.mini-mission {
+    position: relative;
+    margin-left: -56.5px;
+    height: 26px;
+    width: 180px;
+
+
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.mini-mission .indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 21px;
+    background-color: #fff;
+}
+
+.mini-mission .title {
+    margin-left: 21px;
+    box-sizing: border-box;
+    border:1px solid #ffffff;
+    height: 100%;
+    text-align: center;
+    font-family: Thin;
+    font-size: 15px;
+    line-height: 26px;
+    color: #ffffff;
+}
+
+.mini-mission .border {
+    position: absolute;
+    left: 6px;
+    bottom: -4px;
+    height: 4px;
+    width: 168px;
+    background-color: #ffffff;
+    opacity: 0.6;
+}

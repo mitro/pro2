@@ -1,0 +1,20 @@
+<div class="map">
+
+    <div class="line line-horizontal" data-num="1"></div>
+    <div class="line line-horizontal" data-num="2"></div>
+
+    {{#each megaMission in megaMissions}}
+        <div {{ bind-attr class=":step"  data-code="megaMission.code" }}>
+            {{view Pro2.MegaMissionView contentBinding="megaMission" }}
+
+            <div class="way">
+                {{#each miniMission in megaMission.miniMissions}}
+                    <div class="connector"></div>
+                    {{view Pro2.MiniMissionView contentBinding="miniMission" }}
+                {{/each}}
+                <div class="connector"></div>
+            </div>
+        </div>
+    {{/each}}
+
+</div>
